@@ -1,0 +1,163 @@
+<mxfile host="app.diagrams.net" modified="2026-04-23" type="device">
+  <diagram name="Agents và Hooks" id="agents-hooks">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title: Agents -->
+        <mxCell id="title-agents" value="Agents (Subagents) — Chuyên gia AI chuyên biệt" style="text;html=1;fontSize=20;fontStyle=1;align=center;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- User request -->
+        <mxCell id="user-req" value="💬 BA yêu cầu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Main agent -->
+        <mxCell id="main-agent" value="🧠 Kiro Agent Chính&#xa;(Nhận diện &amp; điều phối)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="80" width="250" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge-user-main" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#333;" edge="1" source="user-req" target="main-agent" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent 1: Requirements Validator -->
+        <mxCell id="agent-validator-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="280" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent-validator" value="🔍 requirements-validator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="235" width="240" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="validator-role" value="Vai trò: BA cấp cao" style="text;html=1;fontSize=11;fontStyle=2;align=left;fillColor=none;strokeColor=none;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="90" y="285" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="validator-checks" value="5 tiêu chí kiểm tra:&#xa;① Completeness (đầy đủ)&#xa;② Consistency (nhất quán)&#xa;③ Testability (kiểm thử được)&#xa;④ Compliance (tuân thủ)&#xa;⑤ Dependencies (phụ thuộc)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=8;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="310" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="validator-output" value="Output: ĐẠT / KHÔNG ĐẠT&#xa;+ Mức rủi ro + Tham chiếu pháp quy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent 2: Story Prioritizer -->
+        <mxCell id="agent-prioritizer-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="400" y="220" width="280" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent-prioritizer" value="📊 story-prioritizer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="235" width="240" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="prioritizer-role" value="Vai trò: Trợ lý PO" style="text;html=1;fontSize=11;fontStyle=2;align=left;fillColor=none;strokeColor=none;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="430" y="285" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="prioritizer-levels" value="Phân loại ưu tiên:&#xa;🔴 P0 — Khẩn cấp (deadline NHNN)&#xa;🟠 P1 — Quan trọng&#xa;🟡 P2 — Bình thường&#xa;🟢 P3 — Thấp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;fontSize=10;align=left;spacingLeft=8;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="310" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="prioritizer-output" value="Output: Danh sách xếp hạng P0-P3&#xa;+ Lý do + Đề xuất sprint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="420" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Agent 3: Risk Assessor -->
+        <mxCell id="agent-risk-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="740" y="220" width="280" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent-risk" value="⚠️ risk-assessor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="235" width="240" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="risk-role" value="Vai trò: Risk Manager" style="text;html=1;fontSize=11;fontStyle=2;align=left;fillColor=none;strokeColor=none;fontColor=#666;" vertex="1" parent="1">
+          <mxGeometry x="770" y="285" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="risk-matrix" value="Ma trận đánh giá:&#xa;Khả năng × Tác động&#xa;┌─────┬──────┬──────┐&#xa;│     │ Thấp │ Cao  │&#xa;│ Cao │ Vừa  │ Nguy │&#xa;│Thấp │ Thấp │ Vừa  │&#xa;└─────┴──────┴──────┘" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;fontSize=10;align=left;spacingLeft=8;dashed=1;fontFamily=monospace;" vertex="1" parent="1">
+          <mxGeometry x="760" y="310" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="risk-output" value="Output: Sổ đăng ký rủi ro&#xa;+ Ma trận + Biện pháp giảm thiểu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="760" y="420" width="240" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges from main agent -->
+        <mxCell id="edge-to-v" value="&quot;Validate requirements&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#d6b656;fontSize=9;fontStyle=2;" edge="1" source="main-agent" target="agent-validator" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-to-p" value="&quot;Ưu tiên backlog&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;fontSize=9;fontStyle=2;" edge="1" source="main-agent" target="agent-prioritizer" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-to-r" value="&quot;Đánh giá rủi ro&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#6c8ebf;fontSize=9;fontStyle=2;" edge="1" source="main-agent" target="agent-risk" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Important notes -->
+        <mxCell id="notes-box" value="Đặc điểm quan trọng:&#xa;• Chỉ đọc (read-only) — không tạo/sửa/xóa file&#xa;• Kế thừa steering — tự biết context ngân hàng VN&#xa;• Không kế thừa hooks&#xa;• Model: claude-sonnet-4" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666;fontSize=11;align=left;spacingLeft=10;size=15;" vertex="1" parent="1">
+          <mxGeometry x="830" y="80" width="280" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Separator -->
+        <mxCell id="sep" value="" style="line;strokeWidth=2;strokeColor=#cccccc;" vertex="1" parent="1">
+          <mxGeometry x="50" y="510" width="1100" height="10" as="geometry"/>
+        </mxCell>
+
+        <!-- Title: Hooks -->
+        <mxCell id="title-hooks" value="Hooks — Tự động hóa sau mỗi phiên" style="text;html=1;fontSize=20;fontStyle=1;align=center;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="540" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Hook flow -->
+        <mxCell id="hook-chat" value="💬 BA chat&#xa;với Kiro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="620" width="130" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="hook-process" value="🧠 Kiro&#xa;xử lý xong" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="620" width="130" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="hook-event" value="⚡ agentStop&#xa;event" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666;fontSize=12;fontStyle=1;size=0.15;" vertex="1" parent="1">
+          <mxGeometry x="480" y="615" width="150" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="hook-script" value="📜 sync-issue-status.sh" style="shape=tape;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;size=0.2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="610" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge-h1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#333;" edge="1" source="hook-chat" target="hook-process" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-h2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#333;" edge="1" source="hook-process" target="hook-event" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-h3" value="trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#b85450;fontStyle=2;fontSize=10;" edge="1" source="hook-event" target="hook-script" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Two checks -->
+        <mxCell id="check-todo" value="🔍 grep TODO/FIXME/&#xa;HACK/XXX" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="750" width="170" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="check-git" value="📋 git status&#xa;(uncommitted files)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="750" width="170" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge-todo" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#d6b656;" edge="1" source="hook-script" target="check-todo" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-git" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;" edge="1" source="hook-script" target="check-git" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Warnings -->
+        <mxCell id="warn-todo" value="⚠️ WARNING: 3 markers found&#xa;Review trước khi Done" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="850" width="190" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="warn-git" value="ℹ️ INFO: 5 files uncommitted&#xa;Nhớ commit trước khi Done" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="850" width="190" height="45" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge-w1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#b85450;dashed=1;" edge="1" source="check-todo" target="warn-todo" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-w2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#6c8ebf;dashed=1;" edge="1" source="check-git" target="warn-git" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

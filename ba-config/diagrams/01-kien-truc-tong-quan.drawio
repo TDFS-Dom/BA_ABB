@@ -1,0 +1,127 @@
+<mxfile host="app.diagrams.net" modified="2026-04-23" type="device">
+  <diagram name="Kiến trúc tổng quan" id="arch-overview">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Main container: Kiro IDE -->
+        <mxCell id="kiro-container" value="Kiro IDE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=18;fontStyle=1;verticalAlign=top;spacingTop=10;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1300" height="830" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 1: BA (User) -->
+        <mxCell id="ba-user" value="👤 BA (Người dùng)" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="70" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 2: Three pillars -->
+        <mxCell id="steering-box" value="🧭 Steering&#xa;(Ngữ cảnh tự động)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="steering-files" value="product.md [always]&#xa;backlog-standards.md [auto]&#xa;compliance-sbv.md [auto]" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="100" y="285" width="200" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="skills-box" value="⚡ Skills&#xa;(Hành động theo yêu cầu)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="400" y="200" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="skills-list" value="/requirements-gathering&#xa;/backlog-management&#xa;/sprint-planning" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="410" y="285" width="200" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="agents-box" value="🤖 Agents&#xa;(Chuyên gia AI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="720" y="200" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="agents-list" value="requirements-validator&#xa;story-prioritizer&#xa;risk-assessor" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="730" y="285" width="180" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 3: Kiro AI Agent (chính) -->
+        <mxCell id="kiro-agent" value="🧠 Kiro AI Agent (Chính)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="400" width="700" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows from pillars to agent -->
+        <mxCell id="edge-steering" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="steering-box" target="kiro-agent" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-skills" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=2;" edge="1" source="skills-box" target="kiro-agent" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-agents" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="agents-box" target="kiro-agent" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow from BA to agent -->
+        <mxCell id="edge-ba" value="chat" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;fontStyle=2;fontSize=11;" edge="1" source="ba-user" target="kiro-agent" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Row 4: Hooks and MCP -->
+        <mxCell id="hooks-box" value="🔄 Hooks&#xa;(Tự động hóa)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="350" y="540" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="hooks-detail" value="post-batch-sync&#xa;Trigger: agentStop&#xa;→ grep TODO + git status" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="350" y="625" width="200" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="mcp-box" value="🔌 MCP&#xa;(Kết nối bên ngoài)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="750" y="540" width="200" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Edge from agent to hooks and mcp -->
+        <mxCell id="edge-hooks" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#666666;strokeWidth=2;" edge="1" source="kiro-agent" target="hooks-box" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-mcp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=2;" edge="1" source="kiro-agent" target="mcp-box" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- External systems -->
+        <mxCell id="jira" value="Jira&#xa;✅ Enabled" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="700" width="150" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="confluence" value="Confluence&#xa;⏸ Disabled" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;fontSize=12;fontStyle=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="880" y="700" width="150" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge-jira" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="mcp-box" target="jira" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-confluence" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#999999;strokeWidth=1;dashed=1;" edge="1" source="mcp-box" target="confluence" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-title" value="Chú thích:" style="text;html=1;fontSize=12;fontStyle=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="200" width="100" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-1" value="" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="230" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-1t" value="Tự động nạp" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="227" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-2" value="" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="255" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-2t" value="Theo yêu cầu" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="252" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-3" value="" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="280" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-3t" value="Chuyên gia AI" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="277" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-4" value="" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="305" width="20" height="15" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-4t" value="Kết nối ngoài" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="302" width="100" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
