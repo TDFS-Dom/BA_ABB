@@ -1,76 +1,48 @@
-# BA Workspace — Spec Verification Toolkit
+# Business Analyst — Kiro Configuration (Ngân hàng Việt Nam)
 
-Workspace dành cho Business Analyst, tập trung vào việc viết và **kiểm chứng chất lượng spec** trước khi chuyển sang development.
+Bộ config Kiro tách riêng cho role **Business Analyst** trong nền tảng ngân hàng Việt Nam.
 
-## Cấu trúc
+## Bao gồm
 
+| Element | Files | Mục đích |
+|---------|-------|----------|
+| Steering (3) | product.md, backlog-standards.md, compliance-sbv.md | Bối cảnh nghiệp vụ + backlog + tuân thủ NHNN |
+| Agents (3) | requirements-validator, story-prioritizer, risk-assessor | Validate, ưu tiên, đánh giá rủi ro |
+| Skills (3) | requirements-gathering, backlog-management, sprint-planning | User stories, grooming, sprint planning |
+| Hooks (1) | post-batch-sync | Check TODO/FIXME + uncommitted changes |
+| MCP (2) | Jira, Confluence | Issue tracker + wiki |
+
+## Quy định pháp luật áp dụng
+- Thông tư 09/2020/TT-NHNN — An toàn hệ thống CNTT ngân hàng
+- Thông tư 35/2016/TT-NHNN — Dịch vụ ngân hàng trực tuyến
+- Nghị định 13/2023/NĐ-CP — Bảo vệ dữ liệu cá nhân
+- Thông tư 41/2018/TT-NHNN — Kiểm soát nội bộ
+- PCI-DSS v4.0 — Xử lý thẻ thanh toán
+
+## Cách dùng
+
+```bash
+cp -r ba-config/.kiro /path/to/your-project/
+cp ba-config/AGENTS.md /path/to/your-project/
+chmod +x /path/to/your-project/.kiro/hooks/scripts/sync-issue-status.sh
 ```
-BA_ABB/
-└── ekyc-banking-analysis.md    # Phân tích eKYC cho ngân hàng
 
-.kiro/steering/
-├── verify-correctness.md       # Rule: kiểm tra tính đúng đắn
-├── verify-completeness.md      # Rule: kiểm tra tính đầy đủ
-└── no-spec-workflow.md         # Rule: không tự chạy spec workflow
-```
+Thêm env vars vào Kiro IDE settings:
+- `JIRA_API_TOKEN`, `JIRA_EMAIL`, `JIRA_DOMAIN`
+- `CONFLUENCE_API_TOKEN`, `CONFLUENCE_EMAIL`, `CONFLUENCE_DOMAIN` (disabled by default)
 
-## Hai phương pháp kiểm chứng Spec
+## Slash Commands
 
-Workspace cung cấp 2 steering rules hoạt động bổ trợ cho nhau. Mỗi method có scope riêng, không chồng chéo.
+| Command | Khi nào dùng |
+|---------|-------------|
+| `/requirements-gathering` | Viết user stories + acceptance criteria |
+| `/backlog-management` | Grooming, phân loại issues, refine stories |
+| `/sprint-planning` | Planning session, theo dõi velocity |
 
-### 1. Verify Correctness — "Spec có đúng không?"
+## Subagents
 
-Kiểm tra từng statement trong spec có khớp với thực tế bên ngoài hay không.
-
-**Cách hoạt động:**
-- Đọc spec → search internet lấy thông tin regulation, industry standards, threat data, vendor specs
-- So sánh từng statement với nguồn bên ngoài → flag chỗ sai hoặc mơ hồ
-
-**Flag khi:**
-- Mâu thuẫn với regulation (spec nói X, luật yêu cầu Y)
-- Thiếu con số cụ thể mà regulation/standard đã define (threshold, timeout, retention period...)
-- Thiếu behavior mà best practice khuyến nghị
-- Acceptance criteria không verifiable — QA không biết test thế nào
-
-**Output:** Mỗi finding dùng ❓, kèm statement gốc → vấn đề → nguồn tham khảo → suggest fix. Kết thúc bằng bảng trước/sau.
-
-**Trigger:** Nói với Kiro: *"verify correctness"*, *"check correctness"*, hoặc *"review spec"*.
-
----
-
-### 2. Verify Completeness — "Spec có đủ không?"
-
-Tìm scenarios bị thiếu bằng **Inversion Method** — lật ngược mọi bước trong happy path để hỏi "nếu sai thì sao?".
-
-**Cách hoạt động:**
-- Với MỖI step trong golden path, hỏi 6 câu:
-  1. Input sai? → Validation, error message, recovery
-  2. Service/API fail? → Fallback, retry, error state
-  3. Chậm/timeout? → Loading state, timeout threshold
-  4. Không có quyền? → Auth check, redirect
-  5. Data rỗng? → Empty state, first-time experience
-  6. Xung đột? → Concurrent edit, duplicate submit, stale data
-
-- Sau đó check cross-cutting concerns: data retention, audit trail, compliance, app crash/mất mạng, rate limiting.
-
-- Nếu workspace có internal knowledge files (checklist, gap-log, lessons-learned) → cross-check để flag gaps đã từng xảy ra ở dự án trước.
-
-**Output:** Mỗi gap dùng ❌, group theo step, kèm severity. Kết thúc bằng Gap Report tổng hợp.
-
-**Trigger:** Nói với Kiro: *"verify completeness"*, *"tìm gaps"*, hoặc *"chạy Inversion Method"*.
-
----
-
-### Khi nào dùng method nào?
-
-| Mục tiêu | Method | Ví dụ |
-|---|---|---|
-| Spec có khớp luật/regulation không? | Correctness | "QĐ 2345 yêu cầu gì mà spec chưa cover?" |
-| Spec có thiếu edge case không? | Completeness | "Nếu NFC fail thì user thấy gì?" |
-| Review toàn diện trước khi dev | Cả hai | Chạy Correctness trước, Completeness sau |
-
-## Lưu ý
-
-- Hai method **không chồng chéo**: Correctness không tìm scenario thiếu, Completeness không flag statement mơ hồ.
-- Steering rules tự động active — chỉ cần nói đúng trigger phrase trong chat.
-- Workspace không tự chạy Kiro spec workflow khi mở file trong `.kiro/specs/` (xem `no-spec-workflow.md`).
+| Agent | Cách gọi |
+|-------|---------|
+| requirements-validator | "Validate requirements trong [file]" |
+| story-prioritizer | "Ưu tiên các backlog items này" |
+| risk-assessor | "Đánh giá rủi ro cho [feature/sprint]" |
