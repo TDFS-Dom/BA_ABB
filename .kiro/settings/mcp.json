@@ -13,7 +13,7 @@
         "get_issue",
         "list_sprints"
       ],
-      "disabled": false
+      "disabled": true
     },
     "confluence": {
       "command": "npx",
@@ -29,5 +29,10 @@
       ],
       "disabled": true
     }
+  },
+  "env":{
+    "ATLASSIAN_API_TOKEN":"",
+    "ATLASSIAN_DOMAIN":"jira.gencdp.com",
+    "ATLASSIAN_EMAIL":"devtoannh@gmail.com"
   }
 }
