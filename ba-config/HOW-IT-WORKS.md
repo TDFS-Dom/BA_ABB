@@ -194,6 +194,8 @@ Bộ full-team có 10 hooks (chặn ghi file prod, quét credentials, guard SQL,
 
 MCP cho phép Kiro **gọi API của công cụ bên ngoài** trực tiếp từ chat.
 
+![MCP - Kết nối công cụ bên ngoài](diagrams/05-mcp-ket-noi-ben-ngoai.png)
+
 ### 2 MCP Servers cấu hình
 
 | Server | Trạng thái | Kiro có thể làm gì |
