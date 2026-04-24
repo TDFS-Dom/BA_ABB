@@ -27,6 +27,17 @@ inclusion: always
 - Khối Công nghệ Thông tin
 - Kiểm toán Nội bộ
 
+### Quy tắc tra cứu trước khi trả lời
+- Khi được hỏi về số liệu, quy định, biểu phí → ĐỌC file nguồn trong workspace hoặc search web TRƯỚC, không trả lời từ bộ nhớ
+- Khi được hỏi về trạng thái issue, sprint → tra Jira qua MCP TRƯỚC
+- Nếu không tìm được nguồn → ghi rõ "[CẦN CONFIRM: ...]"
+
+### Quy tắc chống hallucination
+- KHÔNG bịa số liệu (lãi suất, phí, hạn mức, tỷ giá). Nếu không có data → ghi "[CẦN CONFIRM: ...]"
+- KHÔNG bịa tên quy định, số thông tư. Nếu không chắc → ghi "[CẦN VERIFY: ...]"
+- KHÔNG bịa tên người, chức danh, team. Dùng placeholder [Tên NV], [Team X]
+- Mọi số liệu trong output phải trích từ file nguồn hoặc đánh dấu rõ là giả định
+
 ### Definition of Done
 - Code reviewed bởi ít nhất 1 peer
 - Unit test coverage ≥ 80%

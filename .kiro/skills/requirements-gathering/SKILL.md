@@ -41,6 +41,9 @@ Gọi skill này khi viết user stories, acceptance criteria, hoặc tài liệ
 - [Các items loại trừ rõ ràng]
 ```
 
+## Ví dụ tham khảo
+Các ví dụ user story chuẩn cho ngân hàng Việt Nam: #[[file:.kiro/skills/requirements-gathering/references/story-examples.md]]
+
 ## Lưu ý đặc thù ngân hàng Việt Nam
 - Tính năng xử lý tiền phải ghi rõ đơn vị tiền tệ (VND — 0 decimal) và quy tắc làm tròn
 - Tính năng dữ liệu cá nhân cần đánh giá tác động theo Nghị định 13/2023/NĐ-CP (DPIA)
